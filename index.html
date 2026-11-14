@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://portfolio.tuimagenstudios.com/">
 <meta property="og:site_name" content="Tuimagen Studio">
 <meta property="og:locale" content="es_AR">
-<meta property="og:image" content="https://portfolio.tuimagenstudios.com/assets/og-preview.jpg?v=2">
+<meta property="og:image" content="https://portfolio.tuimagenstudios.com/og.jpg">
 <meta property="og:image:alt" content="Tuimagen Studio: diseño, marketing digital e inteligencia artificial">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -175,11 +175,11 @@ h1{font-family: Arial, Helvetica, sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);
 @media(max-width:520px){.cta-box{flex-direction:column;text-align:center}}
 .cta-box h2{font-family:Arial, Helvetica, sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:6px}
 .cta-box p{font-size:0.8rem;color:var(--sub);max-width:380px;line-height:1.65}
-.cta-actions{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.cta-actions{flex-shrink:0;display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:250px}
 .cta-btn{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:var(--cyan);color:#00080f;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-size:0.82rem;padding:12px 24px;border-radius:100px;border:none;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.2s,transform 0.2s;white-space:nowrap;text-decoration:none;line-height:1}
 .cta-btn:hover{opacity:0.85;transform:scale(1.03);text-decoration:none}
-.cta-link{font-size:0.72rem;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(0,224,255,0.35);line-height:1.4;transition:color 0.2s,border-color 0.2s}
-.cta-link:hover{color:var(--green);border-color:rgba(0,255,136,0.55);text-decoration:none}
+.cta-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:Arial, Helvetica, sans-serif;font-size:0.8rem;font-weight:700;color:var(--cyan);text-decoration:none;border:1.5px solid var(--cyan);border-radius:100px;padding:11px 22px;line-height:1;white-space:nowrap;transition:background 0.2s,color 0.2s}
+.cta-link:hover{background:rgba(0,224,255,0.12);color:#fff;text-decoration:none}
 @media(max-width:520px){.cta-actions{align-items:center;width:100%}.cta-btn{width:100%;max-width:260px}.cta-link{text-align:center}}
 
 /* footer */
@@ -434,8 +434,8 @@ footer{text-align:center;padding:36px 0 0;color:var(--muted);font-size:0.75rem}
     </div>
     <div class="cta-actions">
       <a href="https://wa.me/542281375390" target="_blank" rel="noopener noreferrer" class="cta-btn" aria-label="Contactar por WhatsApp">WhatsApp →</a>
-      <a href="/portfolio-natalia-garcia-tuimagen-studio-2026.pdf" download class="cta-link">Descargar portfolio profesional</a>
-      <a href="/CV-Natalia-Garcia-Google-Ads-Junior.pdf" download class="cta-link">Descargar CV</a>
+      <a href="/portfolio-natalia-garcia-tuimagen-studio-2026.pdf" download class="cta-link">⬇ Descargar portfolio profesional</a>
+      <a href="/CV-Natalia-Garcia-Google-Ads-Junior.pdf" download class="cta-link">⬇ Descargar CV</a>
     </div>
   </div>
 
@@ -446,5 +446,18 @@ footer{text-align:center;padding:36px 0 0;color:var(--muted);font-size:0.75rem}
   <p>Arquitecta de ideas & creadora multidimensional · Tuimagen Studio · 2026</p>
 </footer>
 
+<!-- firma Tuimagen Studio -->
+<aside class="tm-firma" style="max-width:980px;margin:48px auto 0;padding:28px 16px 40px;border-top:1px solid rgba(0,224,255,.18);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;font-family:Arial,Helvetica,sans-serif">
+  <a href="https://tuimagenstudios.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:#e8f4ff">
+    <img src="assets/tuimagen-logo-firma.png" alt="Tuimagen Studios" width="72" height="47" style="border-radius:8px;display:block">
+    <span style="font-size:13px;line-height:1.4"><b style="display:block;font-size:15px">Hecho por Tuimagen Studio</b><span style="color:#8fb0cc">Diseño gráfico · Google Ads · IA</span></span>
+  </a>
+  <nav aria-label="Redes de Tuimagen Studio" style="display:flex;flex-wrap:wrap;gap:10px">
+    <a href="https://tuimagenstudios.com/" target="_blank" rel="noopener" style="color:#00e0ff;text-decoration:none;border:1px solid rgba(0,224,255,.5);border-radius:30px;padding:8px 14px;font-size:13px;font-weight:700">Web</a>
+    <a href="https://www.instagram.com/tuimagen_studio/" target="_blank" rel="noopener" style="color:#00e0ff;text-decoration:none;border:1px solid rgba(0,224,255,.5);border-radius:30px;padding:8px 14px;font-size:13px;font-weight:700">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61572083805899" target="_blank" rel="noopener" style="color:#00e0ff;text-decoration:none;border:1px solid rgba(0,224,255,.5);border-radius:30px;padding:8px 14px;font-size:13px;font-weight:700">Facebook</a>
+    <a href="https://www.youtube.com/@Tuimagenstudio/shorts" target="_blank" rel="noopener" style="color:#00e0ff;text-decoration:none;border:1px solid rgba(0,224,255,.5);border-radius:30px;padding:8px 14px;font-size:13px;font-weight:700">YouTube</a>
+  </nav>
+</aside>
 </body>
 </html>
