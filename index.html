@@ -146,7 +146,7 @@ h1{font-family: Arial, Helvetica, sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);
 .cver{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:700;color:var(--cyan)}
 .ccard-ancha{grid-column:span 2;display:grid;grid-template-columns:1.1fr 1fr;align-items:center}
 .ccard-ancha img{height:100%;aspect-ratio:auto;border-bottom:0;border-right:1px solid var(--border)}
-@media(max-width:520px){.ccard-ancha{grid-column:span 1;display:block}.ccard-ancha img{aspect-ratio:16/9;border-right:0;border-bottom:1px solid var(--border)}}
+@media(max-width:760px){.ccard-ancha{grid-column:1/-1;display:block}.ccard-ancha img{height:auto;aspect-ratio:16/9;object-fit:cover;object-position:left top;border-right:0;border-bottom:1px solid var(--border)}}
 .portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:520px){.portfolio{grid-template-columns:1fr}}
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:border-color 0.25s,transform 0.25s}
