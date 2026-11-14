@@ -144,6 +144,7 @@ h1{font-family: Arial, Helvetica, sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);
 .ccard h3{font-size:1rem;font-weight:700;color:#fff;margin:4px 0 8px}
 .ccard p{font-size:.78rem;color:var(--sub);line-height:1.65;margin-bottom:12px}
 .cver{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:700;color:var(--cyan)}
+.pcard-link{display:block;text-decoration:none;color:inherit}
 .portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:520px){.portfolio{grid-template-columns:1fr}}
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:border-color 0.25s,transform 0.25s}
@@ -345,8 +346,20 @@ footer{text-align:center;padding:36px 0 0;color:var(--muted);font-size:0.75rem}
   </div>
 
   <!-- PROYECTOS -->
-  <div class="sec"><div class="sec-line"></div><span class="sec-label">Proyectos seleccionados</span><div class="sec-line"></div></div>
+  <div class="sec" id="proyectos"><div class="sec-line"></div><span class="sec-label">Proyectos seleccionados</span><div class="sec-line"></div></div>
   <div class="portfolio">
+    <a class="pcard pcard-full pcard-link" href="casos/google-ads-bots/">
+      <div class="pcard-bg">G</div>
+      <h3>Análisis de campaña Google Ads · Bots de WhatsApp con IA</h3>
+      <p>La campaña de búsqueda de Tuimagen Studio analizada con el informe que entregamos a cada cliente: configuración, diagnóstico (aprobada pero sin publicar por la verificación de pagos), intención de cada palabra clave, negativas, eficacia del anuncio, medición y plan de relanzamiento de 30 días.</p>
+      <div class="ptags">
+        <span class="pt pt-c">Google Ads</span>
+        <span class="pt pt-c">Búsqueda</span>
+        <span class="pt pt-c">Diagnóstico</span>
+        <span class="pt pt-g">Informe PDF</span>
+      </div>
+      <span class="cver">Ver caso e informe →</span>
+    </a>
     <div class="pcard pcard-full">
       <div class="pcard-bg">01</div>
       <h3>Mini auditorías de Google Ads</h3>
