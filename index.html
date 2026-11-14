@@ -134,6 +134,16 @@ h1{font-family: Arial, Helvetica, sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);
 .cert-verify{font-size:0.62rem;background:var(--green-dim);border:1px solid rgba(0,255,136,0.2);color:var(--green);padding:2px 8px;border-radius:100px;font-weight:600}
 
 /* ── PORTFOLIO ── */
+.clientes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:520px){.clientes{grid-template-columns:1fr}}
+.ccard{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .25s,transform .25s}
+.ccard:hover{border-color:var(--border-h);transform:translateY(-3px)}
+.ccard img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--border)}
+.cbody{padding:18px 20px 20px}
+.clugar{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan)}
+.ccard h3{font-size:1rem;font-weight:700;color:#fff;margin:4px 0 8px}
+.ccard p{font-size:.78rem;color:var(--sub);line-height:1.65;margin-bottom:12px}
+.cver{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:700;color:var(--cyan)}
 .portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:520px){.portfolio{grid-template-columns:1fr}}
 .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;transition:border-color 0.25s,transform 0.25s}
@@ -218,7 +228,7 @@ footer{text-align:center;padding:36px 0 0;color:var(--muted);font-size:0.75rem}
   <div class="stats">
     <div class="stat"><div class="stat-n">9</div><div class="stat-l">Certificaciones Google Ads</div></div>
     <div class="stat"><div class="stat-n">3</div><div class="stat-l">Servicios</div></div>
-    <div class="stat"><div class="stat-n">1</div><div class="stat-l">Idioma</div></div>
+    <div class="stat"><div class="stat-n">4</div><div class="stat-l">Clientes reales</div></div>
     <div class="stat"><div class="stat-n">3</div><div class="stat-l">Casos de estudio</div></div>
   </div>
 
@@ -303,6 +313,35 @@ footer{text-align:center;padding:36px 0 0;color:var(--muted);font-size:0.75rem}
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- CLIENTES REALES -->
+  <div class="sec" id="clientes"><div class="sec-line"></div><span class="sec-label">Clientes reales</span><div class="sec-line"></div></div>
+  <div class="clientes">
+    <a class="ccard" href="casos/ac-taller/">
+      <img src="kit-ac-taller/img/foto-web-computadora.jpg" alt="Web de AC-Taller" loading="lazy">
+      <div class="cbody"><span class="clugar">Taller mecánico · Azul</span><h3>AC-Taller</h3>
+      <p>Web con dominio propio, 7 simuladores interactivos, curso gratuito de 5 módulos, reels, video de YouTube y propuesta de Google Ads.</p>
+      <div class="ptags"><span class="pt pt-c">Web</span><span class="pt pt-c">Google Ads</span><span class="pt pt-g">Contenido</span></div><span class="cver">Ver caso →</span></div>
+    </a>
+    <a class="ccard" href="casos/cata/">
+      <img src="regalo-cata/img/foto-web-computadora.jpg" alt="Web de Cata velas y aromas" loading="lazy">
+      <div class="cbody"><span class="clugar">Velas y aromas · Azul y Tandil</span><h3>Cata velas y aromas</h3>
+      <p>Su primera web, con dominio y Search Console, y una propuesta de Google Ads local para dos ciudades.</p>
+      <div class="ptags"><span class="pt pt-c">Web</span><span class="pt pt-c">Google Ads</span><span class="pt pt-c">SEO local</span></div><span class="cver">Ver caso →</span></div>
+    </a>
+    <a class="ccard" href="casos/maquies/">
+      <img src="casos/img/maquies-paso.jpg" alt="Propuesta para MAQUIES" loading="lazy">
+      <div class="cbody"><span class="clugar">Máquinas de coser · Adrogué</span><h3>MAQUIES</h3>
+      <p>Propuesta de mejora de la tienda con paso a paso, Google y Google Maps, y contenido listo: 2 reels, carrusel, posts y destacados.</p>
+      <div class="ptags"><span class="pt pt-c">Tienda online</span><span class="pt pt-c">Google</span><span class="pt pt-g">Instagram</span></div><span class="cver">Ver caso →</span></div>
+    </a>
+    <a class="ccard" href="casos/transmitiendo-vida/">
+      <img src="casos/img/tv-escritorio.jpg" alt="Web de Transmitiendo Vida" loading="lazy">
+      <div class="cbody"><span class="clugar">Iglesia · Temperley</span><h3>Transmitiendo Vida</h3>
+      <p>Web con agenda de reuniones que se actualiza desde una planilla, radios y novedades. La seguimos administrando.</p>
+      <div class="ptags"><span class="pt pt-c">Web</span><span class="pt pt-g">Google Sheets</span><span class="pt pt-g">Gestión</span></div><span class="cver">Ver caso →</span></div>
+    </a>
   </div>
 
   <!-- PROYECTOS -->

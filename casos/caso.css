@@ -1,0 +1,30 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#05091a;--card:#0a1128;--border:rgba(0,224,255,.12);--border-h:rgba(0,224,255,.4);--cyan:#00e0ff;--green:#00ff88;--text:#e8f4ff;--sub:#8fb0cc;--muted:#4d6c86}
+body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.65;
+  background-image:linear-gradient(rgba(0,224,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,224,255,.025) 1px,transparent 1px);background-size:44px 44px}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 64px}
+.volver{display:block;width:max-content;color:var(--cyan);text-decoration:none;font-size:.85rem;margin-bottom:28px}
+.k{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--cyan)}
+h1{font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.1;margin:10px 0 12px}
+.lead{color:var(--sub);font-size:1.05rem;max-width:68ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 6px}
+.meta span{font-size:.75rem;border:1px solid var(--border);border-radius:30px;padding:5px 12px;color:var(--sub)}
+.hero{margin:28px 0;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+.hero img{display:block;width:100%;height:auto}
+h2{font-size:1.25rem;margin:40px 0 14px;color:#fff}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card h3{font-size:1rem;margin-bottom:6px;color:#fff}
+.card p{font-size:.88rem;color:var(--sub)}
+ul.lista{list-style:none;display:grid;gap:10px}
+ul.lista li{display:flex;gap:12px;font-size:.95rem}
+ul.lista li::before{content:"✓";color:var(--green);font-weight:700}
+.fotos{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:6px;align-items:start}
+.fotos figure{margin:0}
+.fotos img{width:100%;border-radius:12px;border:1px solid var(--border);display:block}
+.fotos figcaption{font-size:.78rem;color:var(--muted);margin-top:6px}
+.botones{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.btn{display:inline-block;background:var(--cyan);color:#05091a;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:30px;font-size:.9rem}
+.btn.sec{background:transparent;color:var(--cyan);border:1px solid var(--cyan)}
+footer{margin-top:56px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--border);padding-top:20px}
+footer a{color:var(--cyan)}
