@@ -357,3 +357,11 @@ body{background-image:
 .intro-cards{padding-top:clamp(70px,8vw,120px)}
 html,body{overflow-x:clip}
 .intro.card h2{font-size:clamp(30px,10cqi,84px)}
+
+/* Franja "Quiero empezar": más baja y fina, oscura con letras en contorno */
+.marquee{background:var(--ink);color:var(--orange);border-block:1px solid #fc7d1880;padding-block:12px;box-shadow:inset 0 0 30px #fc7d1814}
+.marquee span{font:400 clamp(20px,2.2vw,32px)/1 Impact,"Arial Black",sans-serif;letter-spacing:.06em;padding-inline:.6em;color:var(--orange)}
+.marquee span.out{color:transparent;-webkit-text-stroke:1px #f2f0e9}
+.marquee b{font-size:clamp(12px,1.1vw,16px);color:#f2f0e9;padding-inline:.4em}
+.marquee:hover span{color:#ff9e56}.marquee:hover span.out{-webkit-text-stroke-color:var(--orange)}
+@media (prefers-reduced-motion:no-preference){.marquee-track{animation-duration:34s}}
