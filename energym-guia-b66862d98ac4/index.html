@@ -103,6 +103,10 @@ footer .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-
 a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--orange-2);outline-offset:3px}
 
 @media(max-width:560px){.top b{display:none}.top nav{gap:6px}.top .btn{padding:8px 12px;font-size:13px;white-space:nowrap}}
+.demo-box{max-width:680px;margin:28px auto 0;padding:20px 22px;text-align:left;border:2px solid var(--orange);border-radius:18px;background:linear-gradient(155deg,#2a1f18,#151311);box-shadow:0 0 0 5px #fc7d1820,0 16px 34px -14px #000}
+.demo-box .demo-title{font:400 clamp(20px,2.6vw,26px)/1.15 Impact,"Arial Black",sans-serif;letter-spacing:.02em;color:var(--orange-2);margin-bottom:6px}
+.demo-box p{margin:.5em 0;font-size:16px;color:#e9e4da}
+.demo-box b{color:#fff}
 /* ===== PDF (imprimir) ===== */
 @page{size:A4;margin:14mm 12mm}
 @media print{
@@ -141,6 +145,12 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   <h1 class="display">TU WEB, <em>EXPLICADA</em></h1>
   <p class="lead">Ramiro: te armé esta web como regalo para Energym. Acá está todo lo que hace, quién ve cada cosa y cómo entra cada persona, paso a paso y con las pantallas reales.</p>
   <span class="gift">🎁 Un regalo de Tuimagen Studio</span>
+  <div class="demo-box" role="note">
+    <div class="demo-title"><span aria-hidden="true">🔒</span> Esto es una demo: la web todavía no está publicada</div>
+    <p>Por ahora la ven solo las personas que tienen el enlace que te enviamos. No aparece en Google ni en ningún buscador.</p>
+    <p>Probala tranquilo: los alumnos, cuotas y fichas que ves son <b>datos de ejemplo</b>, inventados para mostrarte cómo funciona.</p>
+    <p><b>Si te gusta y nos das el OK</b>, la publicamos con el dominio de Energym para que la vea todo el mundo, y pasa a guardar los datos reales de forma segura.</p>
+  </div>
   <p class="from">Hecha por Natalia · <a href="https://portfolio.tuimagenstudios.com/">Tuimagen Studio</a></p>
   <nav class="toc" aria-label="Contenido de la guía">
     <a href="#publico"><span>01</span>Lo público y lo privado</a>
@@ -334,6 +344,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 
 <footer><div class="wrap">
   <div class="btns"><a class="btn" href="../energym-vista-7cd913bf486a/">Abrir la web de Energym</a><button class="btn ghost" type="button" onclick="window.print()">Descargar esta guía en PDF</button></div>
+  <p><b style="color:var(--orange-2)">Demo privada:</b> la web se publica cuando Ramiro dé el OK. Hasta entonces, solo entra quien tiene el enlace.</p>
   <p>Guía preparada por Natalia · Tuimagen Studio · para Energym Azul</p>
 </div></footer>
 <script>addEventListener("beforeprint",()=>document.querySelectorAll("details").forEach(d=>d.open=true));</script>
