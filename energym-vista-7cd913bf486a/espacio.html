@@ -1,0 +1,51 @@
+<!doctype html><html lang="es-AR"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><script src="ejemplos.js"></script><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mi espacio · Energym Azul</title><link rel="stylesheet" href="estilos.css"><link rel="stylesheet" href="espacio.css">
+<header><div class="bar"><a class="brand" href="index.html"><img src="assets/logo.png" width="46" height="46" alt="Energym Azul"></a><a href="index.html">← Portada</a></div></header>
+<main class="desk"><fieldset class="roles"><legend>Vista de prueba</legend><label><input type="radio" name="role" value="Alumno" checked><span>Alumno</span></label><label><input type="radio" name="role" value="Profesor"><span>Profesor</span></label><label><input type="radio" name="role" value="Profesionales"><span>Profesionales</span></label><label><input type="radio" name="role" value="Ramiro"><span>Ramiro</span></label></fieldset>
+<p class="kicker" id="caption"></p><h1 id="title"></h1><p class="demo">Datos ficticios · Los cambios se guardan en este navegador.</p>
+<details id="code-demo"><summary>Probar ingreso con código</summary><form id="code-form"><label>Código de ejemplo<input name="code" autocomplete="one-time-code" maxlength="16" required></label><button>Ingresar</button></form><p id="code-feedback" role="status"></p></details><section id="avisos" hidden><h2 id="notice-heading">Avisos para mis alumnos</h2><button id="sound-toggle" type="button" aria-pressed="false">Activar sonido de avisos</button><p id="sound-status" role="status"></p><form id="notice-form"><label>Mensaje para alumnos activos y profesores<textarea name="body" required maxlength="1200" rows="3"></textarea></label><button>Publicar aviso</button></form><div id="notice-list"></div></section><section id="access-list" hidden><h2>Alumnos</h2><label id="roster" hidden>Ficha del alumno<select id="person"><option>Martina López</option><option>Tomás Díaz</option></select></label><button id="access-toggle" class="portal-toggle" role="switch" aria-checked="false" aria-label="Acceso al portal del alumno"></button><button id="new-code" type="button">Generar código de ejemplo</button><output id="issued-code"></output></section><p id="paused" hidden>Tu acceso está pausado. Consultá con Ramiro para volver a entrar.</p><section id="settings" hidden><h2>Fichero de alumnos</h2><form id="add-pupil"><label>Nombre y apellido<input name="name" required maxlength="120"></label><div id="intake-fields"></div><button>Crear ficha</button></form><h2>Mi gimnasio</h2><div class="admin-tools"><a class="social" href="calendario.html?editar">Editar calendario ↗</a><a class="social" href="planes.html?editar">Administrar planes y precios ↗</a></div><form id="admin"><label>Fecha de cierre<input name="cierre" type="date"></label><button>Guardar cierre</button></form></section>
+<section id="billing" hidden>
+<h2>Cuotas de alumnos</h2>
+<div class="tablewrap"><table><thead><tr><th>Alumno</th><th>Estado</th><th>Próximo pago</th></tr></thead><tbody id="balances"></tbody></table></div>
+<details id="payment-entry"><summary>Registrar pago</summary><form id="payment">
+<label>Alumno<select name="pupil"></select></label>
+<label>Plan o período abonado<input name="concept" placeholder="Ej. mensualidad de noviembre" required></label>
+<label>Importe recibido ($)<input name="amount" type="number" min="0.01" step="0.01" required></label>
+<label>Fecha de pago<input name="paid" type="date" required></label>
+<label>Próximo vencimiento<input name="due" type="date" required></label>
+<button>Guardar pago</button></form></details>
+<p id="payment-status" role="status"></p>
+<details><summary>Historial de pagos</summary><div id="payments-list"></div></details>
+</section><section id="professional" hidden>
+<h2>Seguimiento profesional</h2>
+<details><summary>Consultar ficha de ingreso</summary><div id="professional-intake"></div></details>
+<label class="clinical-picker">Área de seguimiento<select id="clinical-area"><option>Ficha clínica</option><option>Nutrición y bioimpedancia</option><option>Tratamientos especiales</option></select></label>
+<div id="clinical-log"></div>
+<details id="clinical-editor"><summary>Agregar registro</summary><form id="clinical-form">
+<label>Fecha del control<input name="date" type="date" required></label>
+<label>Profesional responsable<input name="author" required maxlength="100"></label>
+<label id="clinical-topic">Motivo del control<input name="topic" required maxlength="160"></label>
+<div id="clinical-measures"></div>
+<label>Próxima revisión<input name="next" type="date"></label>
+<label>Apuntes del profesional<textarea name="notes" rows="3" maxlength="1500"></textarea></label>
+<label>Indicación para el profesor y Ramiro (opcional)<textarea name="shared" rows="2" maxlength="600" placeholder="Escribí solo lo que el equipo necesita saber para la clase"></textarea></label>
+<button>Guardar registro</button></form></details>
+</section>
+<section id="team-guidance" hidden><h2>Indicaciones del profesional</h2><div id="team-log"></div></section><section id="journal">
+<div id="intake-summary"></div><h2 id="subtitle"></h2><div class="tablewrap"><table><thead><tr><th>Clase</th><th>Ejercicio</th><th>Peso</th><th>Series × rep.</th></tr></thead><tbody id="history"></tbody></table></div>
+<details id="entry" hidden><summary>＋ Registrar ejercicio de la clase</summary><form id="record"><label>Fecha<input type="date" name="date" required></label><label>Ejercicio<input name="exercise" required></label><label>Peso (kg)<input name="weight" type="number" min="0" step="0.01" required></label><label>Series<input name="sets" type="number" min="1" required></label><label>Repeticiones<input name="reps" type="number" min="1" required></label><button>Guardar en la ficha</button></form></details></section><section id="controls"><h2>Mis controles</h2><details><summary>Ficha de nutrición</summary><p>Nutricionista · <a href="index.html#nutricion"><u>Lic. Magali Ridao</u></a></p><p>Primer control · 12 de noviembre</p><p>Objetivo acordado: registrar los horarios de las comidas para conversar en la próxima consulta.</p><p>Próximo control · 26 de noviembre</p><h3>Bioimpedancia</h3><p>Todavía no hay mediciones registradas en esta ficha.</p></details><details><summary>Ficha médica</summary><p>Sin controles registrados. Espacio de muestra, pendiente de confirmar con el gimnasio.</p></details></section><p id="status" role="status"></p></main><script src="agenda.js"></script><script src="ficha.js"></script><script src="cuotas.js"></script><script src="profesionales.js"></script><script src="espacio.js"></script><script src="sonido-avisos.js"></script></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
