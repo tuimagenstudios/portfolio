@@ -71,3 +71,8 @@
 #admin-error{color:#ff9b8a;min-height:1.2em}.admin-dialog .link{background:none;border:0;color:#c7c6bf;text-decoration:underline;margin-top:12px;cursor:pointer;padding:0}
 #admin-lock{display:inline-block;margin:6px 0 14px;background:none;color:inherit;cursor:pointer}#admin-lock[hidden]{display:none}
 .admin-dialog h2{font-size:clamp(24px,6vw,30px);line-height:1.1}
+.back-home{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;padding:10px 16px;border:1px solid #585853;border-radius:999px;font-weight:650;font-size:15px}
+.back-home:hover{border-color:var(--orange);color:var(--orange)}
+.toast{position:fixed;left:50%;bottom:24px;z-index:50;width:min(92vw,440px);padding:16px 18px;border-radius:14px;background:#1b1917;color:#fff;border:1px solid var(--orange);box-shadow:0 10px 30px #000a,0 0 18px #fc7d1844;font-size:16px;line-height:1.4;text-align:center;opacity:0;pointer-events:none;transform:translate(-50%,20px);transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){.toast{transition:none}}

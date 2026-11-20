@@ -41,7 +41,7 @@
       if (pass.value !== repeat.value) { err.textContent = "Las claves no coinciden."; return; }
       localStorage.setItem(HASH, await hash(pass.value));
     } else if (await hash(pass.value) !== saved) {
-      err.textContent = "Clave incorrecta."; pass.select(); return;
+      err.textContent = "Clave incorrecta. Buen intento 😏"; pass.select(); return;
     }
     sessionStorage.setItem(OK, "1");
     dialog.close();
@@ -52,7 +52,36 @@
     if (confirm("¿Borrar la clave de administrador de esta demo? Vas a poder crear una nueva.")) { localStorage.removeItem(HASH); open(); }
   };
 
+  // Carteles para los curiosos.
+  const quips = {
+    Profesor: ["🕵️ ¡Ey, chusma! Esa es la libreta del profe. Volvé a tus series 💪",
+               "📋 Lo que anota el profe queda entre el profe y las pesas. ¡A entrenar!",
+               "👀 Te vimos… La vista del profe es solo para profes. Tres series más por curioso 😄"],
+    Profesionales: ["🩺 Zona de guardapolvos. Acá entran solo los profesionales… y vos tenés abdominales pendientes.",
+               "🥗 Las fichas clínicas no se chusmean, se cuidan. Volvé a tu progreso 😉",
+               "🔬 Área restringida: ni con bioimpedancia te dejamos pasar 😅"],
+    Ramiro:  ["🔒 El panel de Ramiro está más protegido que la barra olímpica. ¡Volvé a entrenar!",
+               "😏 Lindo intento. Las llaves del gimnasio las tiene Ramiro.",
+               "🏋️ Para entrar acá hay que levantar más que curiosidad. Solo Ramiro."]
+  };
+  const toast = document.createElement("div");
+  toast.className = "toast"; toast.setAttribute("role", "status"); toast.setAttribute("aria-live", "polite");
+  document.body.append(toast);
+  let toastTimer;
+  function tease(role) {
+    const list = quips[role] || quips.Ramiro;
+    toast.textContent = list[Math.floor(Math.random() * list.length)];
+    toast.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 4200);
+  }
+  const pupilHere = () => !!localStorage.getItem("energym.demo.pupil");
+  form.querySelector('button[value=cancel]').addEventListener("click", () => tease("Ramiro"));
+
   for (const r of radios) r.addEventListener("change", () => {
+    // Un alumno ingresado en este celular no puede abrir vistas del equipo (salvo que Ramiro haya abierto su panel).
+    if (r.value !== "Alumno" && r !== ramiro && pupilHere() && !unlocked()) {
+      previous.checked = true; render(); tease(r.value); return;
+    }
     if (r !== ramiro) { previous = r; return; }
     if (unlocked()) return;
     previous.checked = true;
