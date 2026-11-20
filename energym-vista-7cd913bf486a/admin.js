@@ -82,6 +82,12 @@
     if (r.value !== "Alumno" && r !== ramiro && pupilHere() && !unlocked()) {
       previous.checked = true; render(); tease(r.value); return;
     }
+    if (STAFF.includes(r.value) && !unlocked() && !staffOk(r.value)) {
+      previous.checked = true; render();
+      if (staffDevice() === r.value && !staffActive(r.value)) { toast.textContent = "⏸️ Tu acceso del equipo está pausado. Consultá con Ramiro."; toast.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove("show"), 4200); return; }
+      if (staffDevice() && staffDevice() !== r.value) { tease(r.value); return; }
+      openStaff(r.value); return;
+    }
     if (r !== ramiro) { previous = r; return; }
     if (unlocked()) return;
     previous.checked = true;
@@ -89,15 +95,93 @@
     open();
   });
 
+  // ===== Equipo: Profesor y Profesionales entran con código, igual que los alumnos =====
+  const STAFF = ["Profesor", "Profesionales"];
+  const ls = { get: k => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} }, del: k => { try { localStorage.removeItem(k); } catch {} } };
+  const staffDevice = () => ls.get("energym.equipo.dispositivo");
+  const staffActive = role => ls.get("energym.equipo.activo." + role) === "1";
+  const staffOk = role => staffDevice() === role && staffActive(role) &&
+    Number(ls.get("energym.equipo.ingreso") || 0) >= Number(ls.get("energym.equipo.reactivado." + role) || 0);
+  const newCode = () => Array.from(crypto.getRandomValues(new Uint8Array(6)), b => b.toString(16).padStart(2, "0")).join("").toUpperCase().match(/.{4}/g).join("-");
+
+  const sd = document.createElement("dialog");
+  sd.className = "admin-dialog";
+  sd.innerHTML = '<form method="dialog" id="staff-login"><h2 id="staff-title"></h2><p>Ingresá el código personal que te dio Ramiro. Lo ponés una sola vez y este celular queda habilitado.</p>' +
+    '<p class="code-help">Para probar la demo: en la vista <b>Ramiro</b>, sección «Equipo», tocá «Generar código».</p>' +
+    '<label>Código del equipo<input name="code" autocomplete="one-time-code" maxlength="20" required></label>' +
+    '<p id="staff-error" role="alert"></p><div class="admin-actions"><button value="ok">Entrar</button><button value="cancel" formnovalidate class="ghost">Cancelar</button></div></form>';
+  document.body.append(sd);
+  const sf = sd.querySelector("form");
+  let staffRole = "";
+  function openStaff(role) {
+    staffRole = role;
+    sd.querySelector("#staff-title").textContent = "Ingreso del equipo · " + role;
+    sd.querySelector("#staff-error").textContent = "";
+    sf.reset(); sd.showModal();
+  }
+  sf.addEventListener("submit", e => {
+    if (e.submitter?.value === "cancel") return;
+    e.preventDefault();
+    const typed = sf.elements.code.value.trim().toUpperCase().replace(/[-\s]/g, "");
+    const saved = (ls.get("energym.equipo.codigo." + staffRole) || "").replace(/-/g, "");
+    if (!typed || typed !== saved || !staffActive(staffRole)) { sd.querySelector("#staff-error").textContent = "Código inválido o ya utilizado."; return; }
+    ls.set("energym.equipo.dispositivo", staffRole);
+    ls.set("energym.equipo.ingreso", String(Date.now()));
+    ls.del("energym.equipo.codigo." + staffRole);
+    sd.close();
+    document.querySelector("input[value=" + staffRole + "]").checked = true;
+    previous = document.querySelector("input[value=" + staffRole + "]");
+    render();
+  });
+  sf.querySelector("button[value=cancel]").addEventListener("click", () => tease(staffRole));
+
+  // Panel "Equipo" dentro de la vista Ramiro
+  const team = document.createElement("section");
+  team.id = "team-access"; team.hidden = true;
+  team.innerHTML = "<h2>Equipo</h2><p class=\"code-help\">Generá un código para cada perfil. Lo ponen una vez y quedan habilitados. Si alguien deja de trabajar con vos, pausalo.</p>" +
+    STAFF.map(role => '<div class="team-row" data-role="' + role + '"><b>' + role + '</b>' +
+      '<button type="button" class="portal-toggle" role="switch" aria-checked="false"></button>' +
+      '<button type="button" class="team-code">Generar código</button><output></output></div>').join("");
+  (document.getElementById("access-list") || document.getElementById("settings")).after(team);
+  function drawTeam() {
+    for (const row of team.querySelectorAll(".team-row")) {
+      const role = row.dataset.role, on = staffActive(role);
+      const t = row.querySelector(".portal-toggle");
+      t.setAttribute("aria-checked", String(on)); t.textContent = on ? "Acceso activo" : "Acceso pausado";
+      t.setAttribute("aria-label", "Acceso de " + role);
+      row.querySelector(".team-code").hidden = !on;
+      row.querySelector("output").textContent = on ? (ls.get("energym.equipo.codigo." + role) || "") : "";
+    }
+  }
+  team.addEventListener("click", e => {
+    const row = e.target.closest(".team-row"); if (!row) return;
+    const role = row.dataset.role;
+    if (e.target.classList.contains("portal-toggle")) {
+      if (staffActive(role)) { ls.set("energym.equipo.activo." + role, "0"); ls.del("energym.equipo.codigo." + role); }
+      else { ls.set("energym.equipo.activo." + role, "1"); ls.set("energym.equipo.reactivado." + role, String(Date.now())); ls.set("energym.equipo.codigo." + role, newCode()); }
+    } else if (e.target.classList.contains("team-code")) ls.set("energym.equipo.codigo." + role, newCode());
+    drawTeam();
+  });
+
   // Botón para cerrar el panel.
   const lock = document.createElement("button");
   lock.type = "button"; lock.id = "admin-lock"; lock.className = "social"; lock.textContent = "Cerrar panel de administrador";
   document.getElementById("title").after(lock);
   lock.onclick = () => { sessionStorage.removeItem(OK); previous.checked = true; render(); };
-  const sync = () => { lock.hidden = !(ramiro.checked && unlocked()); };
+  const sync = () => { lock.hidden = !(ramiro.checked && unlocked()); team.hidden = lock.hidden; if (!team.hidden) drawTeam(); };
   const original = window.render;
-  window.render = function () { original(); sync(); };
+  window.render = function () {
+    original();
+    // Guardia: nunca dejar abierta una vista que este celular no tiene permitida.
+    const cur = radios.find(x => x.checked);
+    const allowed = !cur || cur.value === "Alumno" || unlocked() || (STAFF.includes(cur.value) && staffOk(cur.value));
+    if (!allowed) { radios[0].checked = true; previous = radios[0]; original(); }
+    sync();
+  };
 
   // Si la página se abrió directo en la vista Ramiro (por ejemplo #avisos) sin clave.
-  if (ramiro.checked && !unlocked()) { previous.checked = true; render(); open(); } else sync();
+  const cur = radios.find(x => x.checked);
+  if (ramiro.checked && !unlocked()) { previous.checked = true; render(); open(); }
+  else if (cur && STAFF.includes(cur.value) && !unlocked() && !staffOk(cur.value)) { radios[0].checked = true; previous = radios[0]; render(); }
+  else sync();
 })();

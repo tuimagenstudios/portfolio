@@ -201,7 +201,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
       <span class="tag priv">Privada</span>
       <h3>Mi espacio</h3>
       <p>Una página oculta. Sin código o clave no se ve nada de adentro.</p>
-      <ul class="check"><li>Alumnos: con el código que les das vos</li><li>Profesor y profesionales: con su usuario</li><li>Ramiro: con su clave de administrador</li></ul>
+      <ul class="check"><li>Alumnos: con el código que les das vos</li><li>Profesor y profesionales: con el código que les das vos</li><li>Ramiro: con su clave de administrador</li></ul>
     </div>
   </div>
   <p class="note"><b>Lo importante:</b> cualquiera puede ver la web pública, pero nadie puede mirar fichas, cuotas ni datos de alumnos si vos no le diste acceso.</p>
@@ -216,8 +216,8 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <thead><tr><th>Quién</th><th>Cómo entra</th><th>Avisos</th><th>Fichas de alumnos</th><th>Seguimiento clínico</th><th>Cuotas y precios</th></tr></thead>
     <tbody>
       <tr><th scope="row">Ramiro</th><td>Su clave de administrador</td><td class="y">Publica</td><td class="y">Todas</td><td class="y">Lo que le comparten</td><td class="y">Sí</td></tr>
-      <tr><th scope="row">Profesor</th><td>Su usuario, que crea Ramiro</td><td class="y">Lee</td><td class="y">Sus alumnos</td><td class="y">Lo que le comparten</td><td class="n">No</td></tr>
-      <tr><th scope="row">Profesionales</th><td>Su usuario, que crea Ramiro</td><td class="n">No</td><td class="y">Sus alumnos</td><td class="y">Su área</td><td class="n">No</td></tr>
+      <tr><th scope="row">Profesor</th><td>Un código que le da Ramiro, una sola vez</td><td class="y">Lee</td><td class="y">Sus alumnos</td><td class="y">Lo que le comparten</td><td class="n">No</td></tr>
+      <tr><th scope="row">Profesionales</th><td>Un código que le da Ramiro, una sola vez</td><td class="n">No</td><td class="y">Sus alumnos</td><td class="y">Su área</td><td class="n">No</td></tr>
       <tr><th scope="row">Alumno</th><td>Un código, una sola vez</td><td class="y">Lee</td><td class="y">Solo la suya</td><td class="y">Sus controles</td><td class="n">No</td></tr>
       <tr><th scope="row">Público</th><td>Sin ingresar</td><td class="n">No</td><td class="n">No</td><td class="n">No</td><td class="y">Ve los planes</td></tr>
     </tbody>
@@ -271,6 +271,13 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <figure class="shot phone tall"><img src="capturas/ramiro-cuotas.webp" width="756" height="1850" alt="Cuotas de alumnos y registro de pago"></figure>
   </div>
 
+  <div class="step wide">
+    <div><div class="num">7</div><h3>Habilitás a tu equipo con código</h3>
+      <p>En la sección <b>Equipo</b> de tu panel activás a <b>Profesor</b> o <b>Profesionales</b> y se genera un código, igual que con los alumnos. Se lo mandás por privado, lo ponen una sola vez y su celular queda habilitado.</p>
+      <p>Si alguien deja de trabajar con vos, lo pausás y ya no entra. Si vuelve, lo activás y se genera un código nuevo.</p>
+      <p class="note"><b>Así nadie se cuela:</b> sin código, al tocar Profesor o Profesionales se abre la ventana para ingresarlo. Y si un alumno toca esas vistas, le sale un cartel gracioso y se queda en la suya.</p></div>
+  </div>
+
   <div class="grid2">
     <div class="card"><h3>📣 Avisos</h3><p>Escribís un mensaje, por ejemplo «hay lugares en el turno de la tarde», y les llega a los alumnos activos y al profesor. Con el sonido activado, les suena al entrar.</p></div>
     <div class="card"><h3>📅 Calendario y planes</h3><p>Marcás qué turnos están libres u ocupados y cargás los planes con sus precios. Eso se ve en la web pública.</p></div>
@@ -310,7 +317,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   <div class="role-head"><span class="pill">📋 Profesor</span><div class="kicker" style="margin:0">05 · El profesor</div></div>
   <h2 class="display" style="margin-top:12px">ANOTA CADA <em>CLASE</em></h2>
   <div class="step">
-    <div><p>Entra con su usuario, que le creás vos. Ve <b>solo a los alumnos que le asignás</b>.</p>
+    <div><p>Entra igual que los alumnos: le generás un <b>código del equipo</b> desde tu panel, lo pone una sola vez y su celular queda habilitado. Ve <b>solo a los alumnos que le asignás</b>.</p>
       <ul class="check"><li>Registra los ejercicios de cada clase en la ficha del alumno</li><li>Lee los avisos del gimnasio</li><li>Ve las indicaciones que le dejan los profesionales, por ejemplo «evitar saltos esta semana»</li></ul>
       <ul class="check no"><li>No ve cuotas ni pagos</li><li>No ve las notas clínicas completas</li></ul></div>
     <figure class="shot phone tall"><img src="capturas/profesor.webp" width="780" height="1800" alt="Vista Mis alumnos del profesor"></figure>
@@ -322,7 +329,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   <div class="role-head"><span class="pill">🩺 Profesionales</span><div class="kicker" style="margin:0">06 · Los profesionales</div></div>
   <h2 class="display" style="margin-top:12px">EL SEGUIMIENTO DE <em>SU ÁREA</em></h2>
   <div class="step">
-    <div><p>Nutrición, kinesiología, rehabilitación: cada profesional entra con su usuario y completa su perfil con su especialidad.</p>
+    <div><p>Nutrición, kinesiología, rehabilitación: cada profesional entra con el <b>código del equipo</b> que le das vos, una sola vez, y completa su perfil con su especialidad.</p>
       <ul class="check"><li>Consulta la ficha de ingreso de sus alumnos</li><li>Registra controles: peso, bioimpedancia, evolución de un tratamiento</li><li>Elige qué indicación compartir con vos y con el profesor</li></ul>
       <ul class="check no"><li>No ve cuotas ni avisos</li><li>No ve alumnos que no le asignaste</li></ul>
       <p class="note">Las notas clínicas quedan entre el profesional y el alumno. Vos y el profesor ven solo lo que el profesional decide compartir.</p></div>
@@ -384,7 +391,8 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   <details><summary>¿Y si me olvido la clave de administrador?</summary><div>En la versión final nos escribís y te la restablecemos. En la demo hay un enlace «Olvidé la clave» para crear una nueva.</div></details>
   <details><summary>¿Los alumnos pueden ver lo de otros alumnos?</summary><div>No. Cada alumno ve solo su ficha y su progreso.</div></details>
   <details><summary>¿Puedo cambiar precios, turnos o avisos yo solo?</summary><div>Sí. Todo se edita desde tu panel, sin tocar código ni depender de nadie.</div></details>
-  <details><summary>¿Qué es la «Vista de prueba» de arriba?</summary><div>Son los botones Alumno, Profesor, Profesionales y Ramiro de la demo, para que puedas ver todas las pantallas. En la versión final no están: cada uno entra directo a lo suyo.</div></details>
+  <details><summary>¿Qué es la «Vista de prueba» de arriba?</summary><div>Son los botones Alumno, Profesor, Profesionales y Ramiro de la demo. Cada uno pide su código o clave: el alumno y el equipo, el código que les das; vos, tu clave. Abriendo tu panel podés ver todas las vistas. En la versión final cada uno entra directo a lo suyo.</div></details>
+  <details><summary>¿Cómo pruebo la vista de profesor o profesionales?</summary><div>Entrá a tu panel, en «Equipo» activá el perfil y copiá el código. Cerrá el panel, tocá Profesor o Profesionales y pegalo.</div></details>
   <details><summary>¿Lo que pruebo en la demo se guarda?</summary><div>En la demo, los datos son de ejemplo y quedan guardados solo en el navegador donde probás. En la versión final, con tu dominio, se guardan de forma segura en un servidor y los ven desde cualquier celular.</div></details>
 </div></section>
 </main>
