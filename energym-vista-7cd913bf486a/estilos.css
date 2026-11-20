@@ -187,3 +187,47 @@
 .wa{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:16px 26px;border-radius:999px;font-weight:750;font-size:17px;white-space:nowrap;box-shadow:0 6px 18px #0004}
 .wa svg{color:#25d366}
 .wa:hover{background:#2a2a28}
+
+/* ===== Portada profesional: ENERGYM centrado sobre foto real ===== */
+.hero{min-height:clamp(440px,62vh,680px);align-items:center;text-align:center;border-bottom:4px solid var(--orange);
+  background:
+    linear-gradient(#ffffff09 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,#ffffff09 1px,transparent 1px) 0 0/40px 40px,
+    radial-gradient(ellipse at 50% 55%,#fc7d1840 0%,transparent 60%),
+    linear-gradient(180deg,#0d0b09d9 0%,#0d0b09b3 45%,#0d0b09f2 100%),
+    url('assets/gimnasio.webp') center 60%/cover no-repeat;
+  background-color:#0d0b09}
+.hero:before{opacity:.25;mask-image:radial-gradient(ellipse at center,black 20%,transparent 75%)}
+.hero .wrap{align-items:center;padding-inline:var(--gutter)!important}
+.hero-kicker{margin:0 0 18px;max-width:none;font-size:13px;font-weight:750;letter-spacing:.32em;text-transform:uppercase;color:var(--orange)}
+.hero h1.wordmark{font-size:clamp(68px,15vw,230px);margin:0 auto .12em;text-shadow:0 4px 30px #000a,0 0 .25em #ff791d44}
+.hero h1.wordmark::before{inset:-30% -10%;background:radial-gradient(ellipse,#ff87253a,transparent 65%)}
+.hero-sub{margin:0 auto;max-width:560px;font-size:clamp(16px,1.6vw,20px);color:#e9e4da}
+.hero-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.hero .hero-ctas .button{margin:0;min-height:48px;padding:12px 24px;font-size:15px;border-radius:999px;background:var(--orange);color:#1a0d04;border-color:var(--orange)}
+.hero .hero-ctas .button:hover{background:#ff9e56}
+.hero .hero-ctas .button.ghost{background:#0006;color:#fff;border:1px solid #ffffff66;backdrop-filter:blur(4px)}
+.hero .hero-ctas .button.ghost:hover{border-color:#fff;background:#0009}
+.hero .down{left:50%;right:auto;transform:translateX(-50%)}
+@media(max-width:680px){.hero{min-height:440px}.hero h1.wordmark{font-size:clamp(56px,17vw,96px)}.hero-kicker{font-size:11px;letter-spacing:.24em}.hero .down{display:none}}
+
+/* Logo sin cuadrado, con contorno naranja */
+.brand img{width:auto;height:40px;filter:drop-shadow(1.5px 0 0 var(--orange)) drop-shadow(-1.5px 0 0 var(--orange)) drop-shadow(0 1.5px 0 var(--orange)) drop-shadow(0 -1.5px 0 var(--orange)) drop-shadow(0 0 10px #fc7d1855)}
+.brand-name{font:400 22px/1 Impact,"Arial Black",sans-serif;letter-spacing:.04em;transform:skewX(-8deg)}
+.brand-name em{font-style:normal;color:var(--orange)}
+@media(max-width:680px){.brand img{height:34px}.brand-name{font-size:18px}}
+
+/* Logo RG grande y ENERGYM con fuerza, fondo de aparatos */
+.hero{background:
+    linear-gradient(#ffffff08 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,#ffffff08 1px,transparent 1px) 0 0/40px 40px,
+    radial-gradient(ellipse at 50% 45%,#fc7d1855 0%,transparent 55%),
+    linear-gradient(180deg,#0d0b09e6 0%,#0d0b09a6 50%,#0d0b09f5 100%),
+    url('assets/aparatos.webp') center bottom/cover no-repeat;
+  background-color:#0d0b09}
+.hero-mark{width:auto;height:clamp(96px,13vw,190px);margin:0 auto 10px;
+  filter:drop-shadow(3px 0 0 var(--orange)) drop-shadow(-3px 0 0 var(--orange)) drop-shadow(0 3px 0 var(--orange)) drop-shadow(0 -3px 0 var(--orange)) drop-shadow(0 0 28px #fc7d18aa) drop-shadow(0 10px 30px #000)}
+.hero h1.wordmark{font-size:clamp(84px,17vw,260px);letter-spacing:.005em;color:#fff;
+  text-shadow:0 0 .04em #fff,3px 3px 0 var(--orange),6px 6px 0 #a33c09,0 0 .35em #ff791d77,0 12px 40px #000c}
+.hero-kicker{margin-top:6px}
+@media(max-width:680px){.hero{min-height:520px}.hero h1.wordmark{font-size:clamp(70px,23vw,120px)}.hero-mark{height:92px}}
