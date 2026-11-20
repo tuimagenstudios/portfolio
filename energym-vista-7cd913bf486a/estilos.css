@@ -150,3 +150,40 @@
 .hero .available:hover { background:#ffa661; color:#231409; }
 @keyframes turnos-pulso { 50% { box-shadow:0 0 0 5px #ff942a44; } }
 @media(prefers-reduced-motion:no-preference){.hero .available {animation:turnos-pulso 2s ease-in-out infinite;}}
+
+/* Escritorio: menos aire muerto, videos en una fila que ocupa el ancho. */
+@media (min-width:681px) {
+  .intro { grid-template-columns:minmax(180px,260px) minmax(0,1fr); gap:clamp(24px,4vw,64px); padding-block:clamp(40px,5vw,72px); }
+  .intro + .intro { padding-top:0; }
+  .intro h2 { font-size:clamp(40px,6vw,96px); }
+  .nutrition { width:100%; max-width:none; justify-content:center; padding-block:clamp(48px,6vw,88px); }
+  .reels { padding-block:clamp(48px,6vw,88px); }
+  .reels-grid { grid-template-columns:repeat(3,minmax(0,1fr)); justify-content:stretch; max-width:1100px; margin-inline:auto; }
+  .reels h2 { max-width:1100px; margin-inline:auto; }
+}
+@media (min-width:1280px) {
+  .reels-grid, .reels h2 { max-width:none; }
+  .reels-grid { grid-template-columns:repeat(6,minmax(0,1fr)); }
+}
+
+/* Portada: cuadrícula y equipos de gimnasio de fondo. */
+.hero{background:
+  url('assets/equipos.svg') left 40% center/auto 96% no-repeat,
+  linear-gradient(#ffffff0c 1px,transparent 1px) 0 0/34px 34px,
+  linear-gradient(90deg,#ffffff0c 1px,transparent 1px) 0 0/34px 34px,
+  radial-gradient(ellipse at 78% 40%,#f87814 0%,#a33c09 30%,#301407 56%,#0d0b09 79%)}
+@media(max-width:680px){.hero{background-position:30% 60%,0 0,0 0,0 0;background-size:auto 108%,22px 22px,22px 22px,auto}}
+
+/* Franja naranja "Quiero empezar" en loop. */
+.contact{padding-top:0}
+.marquee{display:block;overflow:hidden;background:var(--orange);color:var(--ink);border-bottom:3px solid var(--ink);padding-block:clamp(10px,1.6vw,18px)}
+.marquee-track{display:flex;width:max-content;animation:marquee 22s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;align-items:center}
+.marquee span{font:400 clamp(42px,7vw,104px)/1 Impact,"Arial Black",sans-serif;transform:skewX(-10deg);white-space:nowrap;padding-inline:.25em}
+.marquee b{font-size:clamp(22px,3vw,44px);padding-inline:.35em}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+.wa{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;padding:16px 26px;border-radius:999px;font-weight:750;font-size:17px;white-space:nowrap;box-shadow:0 6px 18px #0004}
+.wa svg{color:#25d366}
+.wa:hover{background:#2a2a28}

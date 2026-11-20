@@ -47,7 +47,10 @@ if(location.hash==="#avisos")document.querySelector("input[value=Ramiro]").check
 function render() {
   const role = document.querySelector("input[name=role]:checked").value;
   const student = role === "Alumno";
-  const name = student ? (sessionStorage.getItem("energym.demo.pupil")||"Martina López") : el("person").value;
+  let pupil = localStorage.getItem("energym.demo.pupil");
+  if (pupil && Number(localStorage.getItem("energym.demo.reactivado."+pupil)||0) > Number(localStorage.getItem("energym.demo.ingreso")||0)) { localStorage.removeItem("energym.demo.pupil"); pupil = null; }
+  const needsCode = student && !pupil;
+  const name = student ? (pupil||"") : el("person").value;
   const active = localStorage.getItem("energym.acceso.demo."+name) !== "0";
   const blocked = student && !active;
   renderNotices(role,blocked);
@@ -71,6 +74,14 @@ function render() {
   el("caption").textContent = student ? name : "Equipo Energym";
   el("title").textContent = student ? "Mi progreso." : role === "Ramiro" ? "Panel de Ramiro." : role==="Profesionales" ? "Profesionales." : "Mis alumnos.";
   el("subtitle").textContent = student ? "Historial de mis clases" : "Cuaderno de clases";
+  el("code-demo").hidden = !needsCode;
+  if (needsCode) {
+    for (const id of ["avisos","paused","journal","controls","professional","team-guidance","billing","settings","access-list"]) el(id).hidden = true;
+    el("code-demo").open = true;
+    el("caption").textContent = "Alumnos";
+    el("title").textContent = "Ingresá a tu espacio.";
+    return;
+  }
   const history = el("history");
   history.replaceChildren();
   for (const [,date,exercise,weight,sets,reps] of records.filter(r => r[0] === name).sort((a,b) => b[1].localeCompare(a[1]))) {
@@ -137,7 +148,7 @@ el("access-toggle").onclick=()=>{
   const key="energym.acceso.demo."+el("person").value;
   const activate=localStorage.getItem(key)==="0";
   localStorage.setItem(key,activate?"1":"0");
-  if(activate)issueDemoCode();else localStorage.removeItem("energym.demo.code."+el("person").value);
+  if(activate){localStorage.setItem("energym.demo.reactivado."+el("person").value,String(Date.now()));issueDemoCode();}else localStorage.removeItem("energym.demo.code."+el("person").value);
   render();
 };
 
@@ -155,5 +166,6 @@ el("code-form").onsubmit=event=>{
   const input=event.target.elements.code.value.trim().toUpperCase().replace(/[-\s]/g,"");
   const pupil=Array.from(el("person").options,o=>o.value).find(n=>input&&(localStorage.getItem("energym.demo.code."+n)||"").replace(/-/g,"")===input&&localStorage.getItem("energym.acceso.demo."+n)!=="0");
   el("code-feedback").textContent=pupil?"Código aceptado para "+pupil+".":"Código inválido o ya utilizado.";
-  if(pupil){sessionStorage.setItem("energym.demo.pupil",pupil);localStorage.removeItem("energym.demo.code."+pupil);event.target.reset();render();}
+  if(pupil){localStorage.setItem("energym.demo.pupil",pupil);localStorage.setItem("energym.demo.ingreso",String(Date.now()));localStorage.removeItem("energym.demo.code."+pupil);event.target.reset();render();}
 };
+

@@ -61,3 +61,13 @@
 #clinical-log td,#team-log td {min-width:85px;color:inherit;font-weight:400;white-space:pre-line;overflow-wrap:anywhere;}
 #clinical-log th {min-width:100px;}
 #clinical-log,#team-log {margin-top:12px;}
+.code-help{color:#c7c6bf;font-size:15px;max-width:520px}#logout{margin:8px 0 16px;cursor:pointer;background:none;color:inherit}
+.admin-dialog{border:1px solid #99552d;border-radius:14px;background:#1b1917;color:#f2f0e9;padding:24px;width:min(92vw,420px)}
+.admin-dialog::backdrop{background:#000b}
+.admin-dialog h2{margin:0 0 8px}.admin-dialog label{display:grid;gap:6px;margin-top:14px}
+.admin-dialog input{padding:10px;border-radius:8px;border:1px solid #585853;background:#111;color:inherit;font-size:16px}
+.admin-actions{display:flex;gap:10px;margin-top:18px}.admin-actions button{padding:10px 18px;border-radius:8px;border:0;background:var(--orange);color:#211309;font-weight:700;cursor:pointer}
+.admin-actions .ghost{background:none;border:1px solid #585853;color:inherit}
+#admin-error{color:#ff9b8a;min-height:1.2em}.admin-dialog .link{background:none;border:0;color:#c7c6bf;text-decoration:underline;margin-top:12px;cursor:pointer;padding:0}
+#admin-lock{display:inline-block;margin:6px 0 14px;background:none;color:inherit;cursor:pointer}#admin-lock[hidden]{display:none}
+.admin-dialog h2{font-size:clamp(24px,6vw,30px);line-height:1.1}
