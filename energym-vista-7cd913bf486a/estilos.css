@@ -410,3 +410,21 @@ html,body{overflow-x:clip}
 .music-btn.playing .music-eq i{background:#1a0d04}
 @media (max-width:680px){.music-btn{height:50px;padding:0 16px 0 12px;font-size:14px}.music-label{display:inline}}
 @media (prefers-reduced-motion:no-preference){.music-btn:not(.playing){animation:invite 2.2s ease-in-out .8s infinite}}
+
+/* Caja de música con deslizador de volumen */
+.music-box{position:fixed;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);z-index:40;display:flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;border-radius:999px;background:#111110e6;border:1px solid #fc7d1855;backdrop-filter:blur(8px);box-shadow:0 12px 28px -8px #000}
+.music-box .music-btn{position:static}
+.music-vol{-webkit-appearance:none;appearance:none;width:clamp(90px,14vw,140px);height:30px;background:transparent;cursor:pointer;touch-action:none}
+.music-vol::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--orange) var(--p,100%),#3a332d var(--p,100%))}
+.music-vol::-moz-range-track{height:8px;border-radius:99px;background:#3a332d}
+.music-vol::-moz-range-progress{height:8px;border-radius:99px;background:var(--orange)}
+.music-vol::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-8px;border-radius:50%;background:#fff;border:3px solid var(--orange);box-shadow:0 2px 8px #000a}
+.music-vol::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--orange)}
+.music-vol:focus-visible{outline:3px solid var(--orange-2,#ff9e56);outline-offset:4px;border-radius:99px}
+@media (max-width:680px){.music-vol{width:96px}.music-box{gap:8px;padding-right:12px}}
+
+/* Contornos luminosos en botones de borde */
+.social{border:1.5px solid #fc7d18cc;border-radius:10px;color:#fff;box-shadow:0 0 0 1px #fc7d1826,0 0 14px #fc7d1840,inset 0 0 10px #fc7d181a;transition:box-shadow .25s,border-color .25s,color .25s,transform .25s}
+.social:hover{border-color:#ffb27a;color:#ffd2a8;box-shadow:0 0 0 2px #fc7d1840,0 0 22px #fc7d1880,inset 0 0 14px #fc7d1830;transform:translateY(-2px)}
+.hero .hero-ctas .button.ghost{border:1.5px solid #fc7d18cc;box-shadow:0 0 16px #fc7d1840,inset 0 0 10px #fc7d181a}
+.hero .hero-ctas .button.ghost:hover{border-color:#ffb27a;box-shadow:0 0 24px #fc7d1880}

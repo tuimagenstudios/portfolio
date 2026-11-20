@@ -107,6 +107,14 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 .demo-box .demo-title{font:400 clamp(20px,2.6vw,26px)/1.15 Impact,"Arial Black",sans-serif;letter-spacing:.02em;color:var(--orange-2);margin-bottom:6px}
 .demo-box p{margin:.5em 0;font-size:16px;color:#e9e4da}
 .demo-box b{color:#fff}
+.stories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:26px}
+.story{border:1px solid #fc7d1855;border-radius:18px;overflow:hidden;background:#1b1917;box-shadow:0 18px 36px -18px #000}
+.story img{width:100%;aspect-ratio:9/16;object-fit:cover}
+.story figcaption{display:grid;gap:4px;padding:12px 14px 14px}
+.story figcaption span{font-size:14px;color:var(--muted)}
+.story .btn{justify-content:center;margin-top:8px}
+.noscreen{display:none}
+@media(max-width:820px){.stories{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.story figcaption{padding:10px}.story figcaption b{font-size:15px}}
 /* ===== PDF (imprimir) ===== */
 @page{size:A4;margin:14mm 12mm}
 @media print{
@@ -122,6 +130,7 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
   .shot.tall{max-height:300px}
   .grid3 .shot.phone{max-width:170px}
   .cover .lead{font-size:14px}.toc{display:none}
+  section#instagram{break-before:page}.stories{grid-template-columns:repeat(4,1fr);gap:10px}.story .btn{display:none}.noscreen{display:block}
   details{display:block}details > div{display:block}summary:after{content:""}
   details:not([open]) > div{display:block}
   h2{font-size:30px}.cover h1{font-size:64px}
@@ -160,7 +169,8 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
     <a href="#profesor"><span>05</span>El profesor</a>
     <a href="#profesionales"><span>06</span>Los profesionales</a>
     <a href="#web"><span>07</span>La web pública</a>
-    <a href="#preguntas"><span>08</span>Preguntas frecuentes</a>
+    <a href="#instagram"><span>08</span>Historias para Instagram</a>
+    <a href="#preguntas"><span>09</span>Preguntas frecuentes</a>
   </nav>
 </div>
 
@@ -329,8 +339,35 @@ a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(-
 </div></section>
 
 <!-- 08 -->
+<section id="instagram"><div class="wrap">
+  <div class="kicker">08 · Para compartir</div>
+  <h2 class="display">HISTORIAS PARA <em>INSTAGRAM</em></h2>
+  <p class="intro">Cuatro imágenes listas para subir a tus historias, en tamaño 1080 × 1920. Tocá «Descargar» y se guardan en tu celular.</p>
+  <div class="stories">
+    <figure class="story">
+      <img src="historias/historia-1-portada-mini.webp" width="360" height="640" alt="Historia: La portada de la web">
+      <figcaption><b>La portada de la web</b><span>Para mostrar cómo quedó.</span><a class="btn" href="historias/historia-1-portada.jpg" download="energym-historia-1-portada.jpg">Descargar ↓</a></figcaption>
+    </figure>
+    <figure class="story">
+      <img src="historias/historia-2-estrenamos-web-mini.webp" width="360" height="640" alt="Historia: Estrenamos web">
+      <figcaption><b>Estrenamos web</b><span>Para anunciarla con el link en la bio.</span><a class="btn" href="historias/historia-2-estrenamos-web.jpg" download="energym-historia-2-estrenamos-web.jpg">Descargar ↓</a></figcaption>
+    </figure>
+    <figure class="story">
+      <img src="historias/historia-3-turnos-mini.webp" width="360" height="640" alt="Historia: Reservá tu turno">
+      <figcaption><b>Reservá tu turno</b><span>Para cuando haya horarios libres.</span><a class="btn" href="historias/historia-3-turnos.jpg" download="energym-historia-3-turnos.jpg">Descargar ↓</a></figcaption>
+    </figure>
+    <figure class="story">
+      <img src="historias/historia-4-mi-espacio-mini.webp" width="360" height="640" alt="Historia: Tu progreso en el celu">
+      <figcaption><b>Tu progreso en el celu</b><span>Para contarles a los alumnos de Mi espacio.</span><a class="btn" href="historias/historia-4-mi-espacio.jpg" download="energym-historia-4-mi-espacio.jpg">Descargar ↓</a></figcaption>
+    </figure>
+  </div>
+  <p class="note noscreen"><b>Para descargarlas:</b> abrí la guía desde el enlace y tocá «Descargar» debajo de cada historia.</p>
+  <p class="note"><b>Ojo:</b> estas historias son para cuando la web esté publicada. Mientras sea una demo, no las subas.</p>
+</div></section>
+
+<!-- 09 -->
 <section id="preguntas"><div class="wrap">
-  <div class="kicker">08 · Dudas</div>
+  <div class="kicker">09 · Dudas</div>
   <h2 class="display">PREGUNTAS <em>FRECUENTES</em></h2>
   <details><summary>¿Qué pasa si un alumno cambia de celular?</summary><div>Pausás su acceso y lo volvés a activar. Se genera un código nuevo, se lo mandás y lo usa en el celular nuevo.</div></details>
   <details><summary>¿Qué pasa si alguien le pasa el código a otra persona?</summary><div>El código sirve una sola vez. Si ya se usó, no funciona. Si sospechás algo, pausás y reactivás para generar uno nuevo.</div></details>
