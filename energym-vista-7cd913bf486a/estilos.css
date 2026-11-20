@@ -428,3 +428,16 @@ html,body{overflow-x:clip}
 .social:hover{border-color:#ffb27a;color:#ffd2a8;box-shadow:0 0 0 2px #fc7d1840,0 0 22px #fc7d1880,inset 0 0 14px #fc7d1830;transform:translateY(-2px)}
 .hero .hero-ctas .button.ghost{border:1.5px solid #fc7d18cc;box-shadow:0 0 16px #fc7d1840,inset 0 0 10px #fc7d181a}
 .hero .hero-ctas .button.ghost:hover{border-color:#ffb27a;box-shadow:0 0 24px #fc7d1880}
+
+/* Fuente de titulares igual en todos los dispositivos (Android no trae Impact) */
+.hero h1.wordmark,.brand-name,.marquee span,.tape span{font-family:"Anton",Impact,"Arial Narrow Bold",sans-serif}
+.hero .wrap{max-width:100%;overflow:hidden}
+.hero-sub,.turnos-badge{max-width:100%}
+@media(max-width:680px){
+  .hero h1.wordmark{font-size:min(17vw,96px);letter-spacing:0;white-space:nowrap}
+  .hero-sub{font-size:15px;padding-inline:8px}
+  .hero-kicker{font-size:10px;letter-spacing:.18em;gap:8px}
+  .turnos-badge{width:100%;max-width:340px}
+  .hero-ctas{width:100%}
+  .hero .hero-ctas .button{flex:1 1 140px;justify-content:center;padding:12px 14px}
+}
